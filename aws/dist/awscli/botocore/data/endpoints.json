@@ -23710,8 +23710,6 @@
         },
         "endpoints" : {
           "us-gov-east-1" : {
-            "hostname" : "autoscaling-plans.us-gov-east-1.amazonaws.com",
-            "protocols" : [ "http", "https" ],
             "variants" : [ {
               "hostname" : "autoscaling-plans.us-gov-east-1.amazonaws.com",
               "tags" : [ "fips" ]
@@ -23723,8 +23721,6 @@
             "protocols" : [ "http", "https" ]
           },
           "us-gov-west-1" : {
-            "hostname" : "autoscaling-plans.us-gov-west-1.amazonaws.com",
-            "protocols" : [ "http", "https" ],
             "variants" : [ {
               "hostname" : "autoscaling-plans.us-gov-west-1.amazonaws.com",
               "tags" : [ "fips" ]
@@ -28329,7 +28325,8 @@
       },
       "apigateway" : {
         "endpoints" : {
-          "us-iso-east-1" : { }
+          "us-iso-east-1" : { },
+          "us-iso-west-1" : { }
         }
       },
       "appconfig" : {
@@ -29201,6 +29198,11 @@
         }
       },
       "api.sagemaker" : {
+        "endpoints" : {
+          "us-isob-east-1" : { }
+        }
+      },
+      "apigateway" : {
         "endpoints" : {
           "us-isob-east-1" : { }
         }
