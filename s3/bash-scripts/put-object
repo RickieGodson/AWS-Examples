@@ -1,1 +1,27 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
+
+# Exit immediately if any command returns a non-zero status
+set -e
+
+# Define the output directory
+OUTPUT_DIR="/tmp/s3-bash-scripts"
+
+# remove the folder if it already exists
+rm -r $OUTPUT_DIR
+
+# Create the output folder
+mkdir -p "$OUTPUT_DIR"
+
+# Generate a random number between 5 and 10 for the number of files
+NUM_FILES=$((RANDOM % 6 + 5))
+
+for ((i=1; i<=$NUM_FILES; i++)); do
+    # Generate a random filename
+    FILENAME="$OUTPUT_DIR/file_$i.txt"
+
+    # Generate random data and write it to the file
+    dd if=/dev/urandom of="$FILENAME" bs=1024 count=$((RANDOM % 1024 + 1)) 2>/dev/null
+done
+
+# Display the created files
+tree "$OUTPUT_DIR"
