@@ -1,0 +1,6 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: A simple template to create a bucket
+Resources:
+  S3Bucket:
+    Type: 'AWS::S3::Bucket'
+    # We dont need to specify a bucket name as AWS will generate a random name for us
