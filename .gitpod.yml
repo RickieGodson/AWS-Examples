@@ -1,4 +1,9 @@
 tasks:
+  - name: terraform
+    before: |
+      cd s3/cfn
+      git clone https://github.com/hashicorp/terraform.git
+      mv terraform /usr/local/bin/
   # random utilities
   - name: utils
     before: |
