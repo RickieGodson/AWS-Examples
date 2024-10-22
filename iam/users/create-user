@@ -1,0 +1,14 @@
+#! /usr/bin/env bash
+
+echo "== create user"
+
+# check if the first argument is provided
+if [ -z "$1" ]; then
+    echo "No user name provided."
+    exit 1
+fi
+
+USER_NAME=$1
+
+aws iam create-user \
+    --user-name $USER_NAME

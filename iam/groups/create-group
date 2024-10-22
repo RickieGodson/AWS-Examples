@@ -1,0 +1,14 @@
+#! /usr/bin/env bash
+
+echo "== create group"
+
+# check if the first argument is provided
+if [ -z "$1" ]; then
+    echo "No group name provided."
+    exit 1
+fi
+
+GROUP_NAME=$1
+
+aws iam create-group \
+    --group-name $GROUP_NAME

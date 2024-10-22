@@ -1,0 +1,15 @@
+#! /usr/bin/env bash
+
+echo "== create policy"
+
+# check if the first argument is provided
+if [ -z "$1" ]; then
+    echo "No policy name provided."
+    exit 1
+fi
+
+POLICY_NAME=$1
+
+aws iam create-policy \
+    --policy-name $POLICY_NAME \
+    --policy-document file://policy

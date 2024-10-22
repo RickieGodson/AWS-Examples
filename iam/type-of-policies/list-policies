@@ -1,0 +1,14 @@
+#! /usr/bin/env bash
+
+echo "== list policies"
+
+# check if the first argument is provided
+if [ -z "$1" ]; then
+    echo "No max items provided."
+    exit 1
+fi
+
+MAX_ITEMS=$1
+
+aws iam list-policies \
+    --max-items $MAX_ITEMS

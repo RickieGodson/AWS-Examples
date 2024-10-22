@@ -1,0 +1,16 @@
+#! /usr/bin/env bash
+
+echo "== create mfa virtual device"
+
+# check if the first argument is provided
+if [ -z "$1" ]; then
+    echo "No mfa device name provided."
+    exit 1
+fi
+
+MFA_DEVICE_NAME=$1
+
+aws iam create-virtual-mfa-device \
+    --virtual-mfa-device-name $MFA_DEVICE_NAME \
+    --outfile ./mfa.png \
+    --bootstrap-method QRCodePNG

@@ -1,0 +1,25 @@
+#! /usr/bin/env bash
+
+echo "== attach mfa virtual device to user / enabling MFA"
+
+# check if the first argument is provided
+if [ -z "$1" ]; then
+    echo "No user name provided."
+    exit 1
+fi
+
+# check if the second argument is provided
+if [ -z "$2" ]; then
+    echo "No serial number provided."
+    exit 1
+fi
+
+
+USER_NAME=$1
+SERIAL_NUMBER=$2
+
+aws iam enable-mfa-device \
+    --user-name $USER_NAME \
+    --serial-number $SERIAL_NUMBER \
+    --authentication-code1 569401 \
+    --authentication-code2 735958

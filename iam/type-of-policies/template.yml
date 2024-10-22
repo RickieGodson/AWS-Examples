@@ -1,0 +1,29 @@
+Resources:
+  MyUser:
+    Type: AWS::IAM::User
+    Properties:
+      #UserName: 'my-cool-user'
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/job-function/ViewOnlyAccess
+      Policies:
+        - PolicyName: MyCoolPolicy
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Sid: IamListAccess
+                Effect: Allow
+                Action:
+                - 'iam:ListRoles'
+                - 'iam:ListUsers'
+                Resource: '*'
+  MyInlinePolicy:
+    Type: 'AWS::IAM::Policy'
+    Properties:
+      PolicyName: MyInlinePolicy
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Action: 'ec2:*'
+            Resource: '*'
+      #UserName: MyUser

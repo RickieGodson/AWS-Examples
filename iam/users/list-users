@@ -1,0 +1,5 @@
+#! /usr/bin/env bash
+
+echo "== list all users"
+
+aws iam list-users

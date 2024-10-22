@@ -1,0 +1,14 @@
+#! /usr/bin/env bash
+
+echo "== delete policy"
+
+# check if the first argument is provided
+if [ -z "$1" ]; then
+    echo "No policy arn provided."
+    exit 1
+fi
+
+POLICY_ARN=$1
+
+aws iam delete-policy \
+    --policy-arn $POLICY_ARN

@@ -1,0 +1,23 @@
+#! /usr/bin/env bash
+
+echo "== delete user access keys"
+
+# check if the first argument is provided
+if [ -z "$1" ]; then
+    echo "No access key ID provided."
+    exit 1
+fi
+
+ACCESS_KEY_ID=$1
+
+# check if the second argument is provided
+if [ -z "$2" ]; then
+    echo "No user name provided."
+    exit 1
+fi
+
+USER_NAME=$2
+
+aws iam delete-access-key \
+    --access-key-id $ACCESS_KEY_ID \
+    --user-name $USER_NAME

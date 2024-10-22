@@ -1,0 +1,22 @@
+#! /usr/bin/env bash
+
+echo "== attach policy to group"
+
+# check if the first argument is provided
+if [ -z "$1" ]; then
+    echo "No group name provided."
+    exit 1
+fi
+
+# check if the second argument is provided
+if [ -z "$2" ]; then
+    echo "No policy arn provided."
+    exit 1
+fi
+
+GROUP_NAME=$1
+POLICY_ARN=$2
+
+aws iam attach-group-policy \
+    --group-name $GROUP_NAME \
+    --policy-arn $POLICY_ARN
